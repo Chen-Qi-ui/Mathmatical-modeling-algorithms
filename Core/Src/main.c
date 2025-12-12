@@ -21,7 +21,9 @@
 #include "cmsis_os.h"
 #include "adc.h"
 #include "dma.h"
+#include "rtc.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 #include "fsmc.h"
 
@@ -90,13 +92,12 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+
+
+  
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
- ///111
-
-
- 
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -104,14 +105,16 @@ int main(void)
   MX_FSMC_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
+  MX_RTC_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* LCD初始化 */
 	lcd_init(); // 初始化LCD
   // 普通显示（会用背景色擦除）
-  lcd_show_str(0,0,12,(uint8_t *)"Hello STM32F407!",RED);					   	//初始化
+  lcd_show_str(0,0,16,"Event Synchronization",RED);					   	//初始化
 
-  LED2_ON();
+
 
 
   
@@ -156,8 +159,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;

@@ -19,6 +19,7 @@ set(MX_Include_Dirs
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/CMSIS/Include
     ${CMAKE_CURRENT_SOURCE_DIR}/../../LCD
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/User
 )
 
 # STM32CubeMX generated application sources
@@ -29,15 +30,17 @@ set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/adc.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/dma.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/fsmc.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/rtc.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/tim.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/usart.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_hal_timebase_tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/sysmem.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/syscalls.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../startup_stm32f407xx.s
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../LCD/lcd.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/keyled.c  
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/User/keyled.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../LCD/lcd.c
 )
 
 # STM32 HAL/LL Drivers
@@ -66,6 +69,9 @@ set(STM32_Drivers_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nand.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pccard.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
 )
 
 # Drivers Midllewares
