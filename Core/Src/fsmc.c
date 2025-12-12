@@ -21,6 +21,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "fsmc.h"
 
+
+
+
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
